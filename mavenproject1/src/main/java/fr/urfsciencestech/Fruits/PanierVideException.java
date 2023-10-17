@@ -1,4 +1,4 @@
-package fr.ufrsciencestech.mavenproject1;
+package fr.urfsciencestech.Fruits;
 
 /**
  *

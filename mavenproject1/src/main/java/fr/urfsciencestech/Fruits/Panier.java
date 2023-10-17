@@ -1,4 +1,4 @@
-package fr.ufrsciencestech.mavenproject1;
+package fr.urfsciencestech.Fruits;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class Panier {
     private ArrayList<Fruit> fruits;  //attribut pour stocker les fruits
     private int contenanceMax;        //nb maximum d'oranges que peut contenir le panier
-    public String message;
+    
     //groupe 1
     public Panier(int contenanceMax) {  //initialise un panier vide ayant une certaine contenance maximale (precisee en parametre)
         this.fruits = new ArrayList<Fruit>();
@@ -19,7 +19,7 @@ public class Panier {
         } else {
             this.contenanceMax = contenanceMax;
         }
-        this.message ="pas en core";
+        
     }
 
     @Override
@@ -139,13 +139,7 @@ public class Panier {
         return messages;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
+   
     
     
     /**
@@ -157,7 +151,7 @@ public class Panier {
     {   
                     
        // setMessage(nameFruit);
-        Fruit f ;
+       
         
        switch(nameFruit){//j'aimerai que les cases soient pas sensible
         case "Orange": 

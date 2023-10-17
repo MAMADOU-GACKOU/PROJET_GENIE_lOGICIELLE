@@ -1,11 +1,7 @@
-package fr.ufrsciencestech.mavenproject1;
+package fr.urfsciencestech.Fruits;
 
 
-/**
- *
- * @author  aa800033
 
- */
 
 
 

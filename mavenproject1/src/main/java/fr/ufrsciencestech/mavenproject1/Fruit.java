@@ -2,7 +2,8 @@ package fr.ufrsciencestech.mavenproject1;
 
 /**
  *
- * @author roudet
+ * @author  aa800033
+
  */
 public interface Fruit {
     public boolean isSeedless();  //predicat indiquant si le fruit a ou non des pepins

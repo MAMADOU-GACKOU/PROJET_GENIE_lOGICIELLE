@@ -2,7 +2,7 @@ package fr.ufrsciencestech.mavenproject1;
 
 /**
  *
- * @author roudet
+ * @author aa800033
  */
 public class PanierPleinException extends Exception {
     

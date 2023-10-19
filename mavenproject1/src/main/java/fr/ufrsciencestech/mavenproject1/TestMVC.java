@@ -84,9 +84,9 @@ public class TestMVC {
         modele.addObserver(vueP);
         vueP.addControleur(controleur);
 
-    }
+    }  
 
     public static void main(String[] args) {
-        TestMVC mvc = new TestMVC();
+            TestMVC mvc = new TestMVC();
     }
 }

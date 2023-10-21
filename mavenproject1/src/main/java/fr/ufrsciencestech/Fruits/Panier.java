@@ -11,6 +11,8 @@ public class Panier {
     private ArrayList<Fruit> fruits;  //attribut pour stocker les fruits
     private int contenanceMax;        //nb maximum d'oranges que peut contenir le panier
     private String message;
+    private  String Items[];// la liste des fruits prevu pour notre modele 
+    
     //groupe 1
     public Panier(int contenanceMax) {  //initialise un panier vide ayant une certaine contenance maximale (precisee en parametre)
         this.fruits = new ArrayList<Fruit>();
@@ -139,14 +141,47 @@ public class Panier {
      */
     public String afficheContenuPanier()
     {
-        String messages = "Panier de "+this.getNbFruits()+ " fruits :"+this.getPrix()+"euros\n";
-        for (int i = 0; i < this.getNbFruits(); i++) {
-             messages += this.getFruit(i).toString()+ "\n";
+        String Items[]={"Orange","Fraise","Pomme"};
+        
+        
+        int [] compteurs = new int[Items.length];
+        
+        // j'initialise les  compteurs a zero 
+        for (int i=0;i<compteurs.length;i++)
+        {
+            compteurs[i]=0;
         }
+        
+        String messages = "Panier de "+this.getNbFruits()+ "Fruits: "+ this.getPrix();
+        
+        for (int i = 0; i < this.getNbFruits(); i++) {
+             messages = this.getFruit(i).toString()+ "\n";
+             for (int j=0;j<Items.length;j++)
+             {
+             if( messages.contains(Items[j]))
+             {
+                 compteurs[j]=compteurs[j]+1;
+             }
+             else 
+             {
+                 compteurs[j]=compteurs[j]+0;
+             }
+             }
+                  
+          }
+        
+        int k=0;
+       
+        messages="Panier de "+this.getNbFruits()+ "Fruits: "+ this.getPrix()+"\n"+
+                compteurs[0]+"Orange de 0.5 euros"+"\n"+ compteurs[1]+"Fraise de 0.5 euros "+"\n"+
+                compteurs[2]+"Pomme de 0.5 euros"+"\n";
+           
+        
        
         return messages;
     }
 
+    
    
     
     
@@ -159,8 +194,7 @@ public class Panier {
     {   
                     
        // setMessage(nameFruit);
-       
-        
+  
        switch(nameFruit){//j'aimerai que les cases soient pas sensible
         case "Orange": 
             return new Orange();
@@ -170,7 +204,18 @@ public class Panier {
             return  new Orange();
            
          }
+       
      
+    }
+    
+     public void setStringList(String items[])
+    {
+        this.Items=items;
+    }
+    
+    public  String[] getStringList()
+    {
+        return Items;
     }
 
 /*

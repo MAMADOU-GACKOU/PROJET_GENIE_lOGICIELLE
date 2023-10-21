@@ -21,6 +21,10 @@ public class TestMVC {
     private VueG vueg;      //pour pouvoir changer de vue si on le souhaite
     private Controleur controleur;  //pour pouvoir changer de controleur si on le souhaite
     private VueG vueP;
+   
+    // ici je suppose que c ma liste de fruit du modele 
+    private String ListeFruit[]={"Orange","Fraise","Pomme"};
+   
 
     /**
      * @return the vueg
@@ -69,25 +73,38 @@ public class TestMVC {
         //abdel
 
         vueg = new VueGraphSwing();
+        
         controleur = new Controleur();
-        Modele modele = new Modele();
+        Modele modele = new Modele(ListeFruit);
 
         controleur.setModele(modele);
         modele.addObserver(vueg);
         vueg.addControleur(controleur);
+      
+        
 
         //next window
-        vueP = new VueGraphAjoutRetire();
-        controleur = new Controleur();
-        Modele modele2 = new Modele();
+        // ici je donne la mm liste a ma vue
+        // y'a la possibilité aussi de retourné celle du modele et l'affecter  a la vue 
+        vueP = new VueGraphAjoutRetire(ListeFruit);
 
-        controleur.setModele(modele);
+        controleur = new Controleur();
+        // la je donne la liste au modele 
+        Modele modele2 = new Modele(ListeFruit);
+        
         modele.addObserver(vueP);
+        
         vueP.addControleur(controleur);
+        
+        
+       System.out.println( modele.getPanier().toString());
+        
 
     }  
 
     public static void main(String[] args) {
             TestMVC mvc = new TestMVC();
+            
+            
     }
 }

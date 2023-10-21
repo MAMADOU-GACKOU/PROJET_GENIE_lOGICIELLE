@@ -21,17 +21,22 @@ public class VueGraphAjoutRetire extends JFrame implements VueG{
     private JTextArea affiche;
     private JComboBox combo;
     private JPanel panelNorth;
-
-    public VueGraphAjoutRetire()
+    private String ListeFruit[];
+    
+    
+ // ici je passe un parametre d'une liste de fruit 
+    public VueGraphAjoutRetire(String ListeFruit[])
 
     {
         super("Panier");
-        String items[] = {"Orange", "Fraise"};
+        
+        // j'initialise la liste prévu pour la combobox avec celle passer en parametre 
+        String items[]=ListeFruit;
         inc = new JButton("+");
         dec = new JButton("-");
         affiche = new JTextArea();
         combo = new JComboBox(items);
-
+        
         //combo.setSelectedIndex(0);
         panelNorth = new JPanel();
         add(panelNorth, BorderLayout.NORTH);
@@ -48,7 +53,7 @@ public class VueGraphAjoutRetire extends JFrame implements VueG{
         this.setSize(300, 200);
         this.setVisible(true);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        
     }
 
     public void addControleur(Controleur c) {
@@ -66,9 +71,17 @@ public class VueGraphAjoutRetire extends JFrame implements VueG{
             System.out.print(compte);
         }
          */
+       
+        
         getAffiche().setText((((Panier) p).afficheContenuPanier()));
+        
     }
 
+   
+        
+        
+    
+    
     /**
      * @return the inc
      */
@@ -124,4 +137,17 @@ public class VueGraphAjoutRetire extends JFrame implements VueG{
     public void setAffiche(JTextArea affiche) {
         this.affiche = affiche;
     }
+    
+    
+     public void setStringListVue(String items[])
+    {
+        this.ListeFruit=items;
+    }
+    
+    public  String[] getStringListVue()
+    {
+        return ListeFruit;
+    }
+    
+    
 }

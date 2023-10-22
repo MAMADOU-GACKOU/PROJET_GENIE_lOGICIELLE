@@ -60,7 +60,12 @@ public class Fraise implements Fruit{
             return false;
         }
     
-        public boolean isSeedless() {  //predicat indiquant qu'une orange a des pepins
+    /**
+     *
+     * @return le predicat indiquant qu'une orange a des pepins
+     */
+    @Override
+        public boolean isSeedless() {  
             return false;
         }
 

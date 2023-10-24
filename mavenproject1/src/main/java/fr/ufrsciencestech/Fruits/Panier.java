@@ -166,6 +166,13 @@ public class Panier {
             return new Orange();
         case "Fraise":
             return new Fraise();
+        case "Macedoine de Banane":
+          Macedoine test = new Macedoine();
+          Banane b = new Banane(4, "Japan");
+          Ananas a = new Ananas(8, "canada");
+          test.ajoutFruitMacedoine(b);
+          test.ajoutFruitMacedoine(a);
+        return test;
         default:
             return  new Orange();
            

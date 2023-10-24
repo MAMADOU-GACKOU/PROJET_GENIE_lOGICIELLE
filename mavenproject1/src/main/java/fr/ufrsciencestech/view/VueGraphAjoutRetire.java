@@ -26,7 +26,7 @@ public class VueGraphAjoutRetire extends JFrame implements VueG{
 
     {
         super("Panier");
-        String items[] = {"Orange", "Fraise"};
+        String items[] = {"Orange", "Fraise", "Cerise", "Banane"};
         inc = new JButton("+");
         dec = new JButton("-");
         affiche = new JTextArea();

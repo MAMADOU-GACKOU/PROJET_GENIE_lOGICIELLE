@@ -6,7 +6,7 @@ package fr.ufrsciencestech.Fruits;
 
 /**
  *
- * @author uBprêt
+ * @author Wissam
  */
 public class Banane extends FruitSimple {
     public Banane(double prix, String origine)

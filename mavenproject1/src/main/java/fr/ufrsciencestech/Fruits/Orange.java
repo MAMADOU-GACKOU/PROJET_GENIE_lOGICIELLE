@@ -1,81 +1,35 @@
 package fr.ufrsciencestech.Fruits;
-
-
-
 /**
  *
- * @author aa800033
+ * @author Wissam
 
  */
-public class Orange implements Fruit{
-    private double prix;
-    private String origine;
+public class Orange extends FruitSimple{
+    public Orange(double prix, String origine)
+    {
+        super(prix,origine);
+    }
 	
     public Orange() 
     {
-        this.prix = 0.5;  //prix en euros
-        this.origine="Espagne";
+        super(0.5,"Espagne");
     }
-    
-    public Orange(double prix, String origine) 
+    @Override
+    public boolean isSeedless()
     {
-	if(prix < 0)
-	    this.prix = -prix;  //une solution possible pour interdire les prix negatifs
-	else
-	    this.prix = prix;
-
-	if(origine.equals(""))
-            this.origine = "Espagne";  //Espagne par défaut
-	else
-            this.origine = origine;   
+        return false;
     }
-
-    public double getPrix(){
-	return prix;
-    }
-
-    public void setPrix(double prix){
-	this.prix=prix;
-    }
-
-    public String getOrigine(){
-	return origine;
-    }
- 
-    public void setOrigine(String origine){
-	this.origine=origine;
-    }
-
     @Override
     public String toString(){
-        return "Orange de " + origine + " a " + prix + " euros";
+        return "Orange de " +getOrigine()+ " a " + getPrix() + " euros";
     }
 
     @Override
-    public boolean equals(Object o){  //predicat pour tester si 2 oranges sont equivalentes
+    public boolean equals(Object o){  //predicat pour tester si 2 Cerises sont equivalentes
         if(o != null && getClass() == o.getClass()){
-            Orange or = (Orange) o;
-            return (prix == or.prix && origine.equals(or.origine));
+            Orange orange = (Orange) o;
+            return ((orange.getPrix()==getPrix())  && orange.getOrigine().equals(getOrigine()));
         }
         return false;
     }
-
-    public boolean isSeedless() {  //predicat indiquant qu'une orange a des pepins
-        return false;
-    }
-
-/*
-    public static void main (String[] args){
-        //Ecrire ici vos tests
-	System.out.println("premier test Orange");
-
-    Orange fruit1 = new Orange();
-    System.out.println(fruit1.toString());
-
-    Orange  fruit2 = new Orange(100, "France");
-    
-    System.out.println(fruit2.toString());
-
-
-   }*/
 }

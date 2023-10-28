@@ -5,6 +5,7 @@
 package fr.ufrsciencestech.controler;
 
 import fr.ufrsciencestech.view.VueG;
+import fr.ufrsciencestech.view.VueGraphAjoutRetire;
 import fr.ufrsciencestech.model.Modele;
 import fr.ufrsciencestech.Fruits.PanierPleinException;
 import fr.ufrsciencestech.Fruits.PanierVideException;
@@ -19,8 +20,9 @@ import java.util.logging.Logger;
  * @author aa800033
  */
 public class Controleur implements ActionListener{
-     private Modele m;
+    private Modele m;
     private VueG vg;
+    private VueGraphAjoutRetire vtestCombo;
 
     @Override
     public void actionPerformed(ActionEvent e) {   //Invoked when an action occurs
@@ -33,6 +35,7 @@ public class Controleur implements ActionListener{
                 cb = (JComboBox) e.getSource(); 
                 petName = (String) cb.getSelectedItem();
                 m.p.setMessage(petName);
+                
          }
         else if (((Component) e.getSource()).getName().equals("Plus")) 
         {
@@ -48,14 +51,38 @@ public class Controleur implements ActionListener{
         } catch (PanierVideException ex) {
             Logger.getLogger(Controleur.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+        
+       
+    } 
+        
+
 
     public void setModele(Modele m) {
         this.m = m;
     }
 
+    public void setVueTest(VueGraphAjoutRetire vg) {
+        this.vtestCombo = vg;
+    }
+    
     public void setVue(VueG vg) {
         this.vg = vg;
     }
+    
+    public Modele getModel()
+    {
+        return m;
+    }
+    
+    public VueGraphAjoutRetire getVueCombo(){
+    
+    return vtestCombo;
+    }
+    
+
+    public void initialiserVueAvecModele() {
+    String[] items = m.getStringList(); // Utilisez les données du modèle
+    vtestCombo.setCombo(new JComboBox(items)); // Mettez à jour la JComboBox de la vue avec les nouvelles données
+}
 
 }

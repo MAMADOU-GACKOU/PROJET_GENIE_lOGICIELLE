@@ -1,4 +1,4 @@
-package fr.ufrsciencestech.Fruits;
+package fr.urfsciencestech.Fruits;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -10,8 +10,6 @@ import java.util.logging.Logger;
 public class Panier {
     private ArrayList<Fruit> fruits;  //attribut pour stocker les fruits
     private int contenanceMax;        //nb maximum d'oranges que peut contenir le panier
-    private String message;
-    private  String Items[];// la liste des fruits prevu pour notre modele 
     
     //groupe 1
     public Panier(int contenanceMax) {  //initialise un panier vide ayant une certaine contenance maximale (precisee en parametre)
@@ -21,7 +19,7 @@ public class Panier {
         } else {
             this.contenanceMax = contenanceMax;
         }
-        this.message = "pas en core";
+        
     }
 
     @Override
@@ -63,14 +61,6 @@ public class Panier {
         }
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-    
     public boolean estVide() {  //predicat indiquant que le panier est vide
         return this.fruits.isEmpty();
     }
@@ -141,47 +131,14 @@ public class Panier {
      */
     public String afficheContenuPanier()
     {
-        String Items[]={"Orange","Fraise","Pomme"};
-        
-        
-        int [] compteurs = new int[Items.length];
-        
-        // j'initialise les  compteurs a zero 
-        for (int i=0;i<compteurs.length;i++)
-        {
-            compteurs[i]=0;
-        }
-        
-        String messages = "Panier de "+this.getNbFruits()+ "Fruits: "+ this.getPrix();
-        
+        String messages = "Panier de "+this.getNbFruits()+ " fruits :"+this.getPrix()+"euros\n";
         for (int i = 0; i < this.getNbFruits(); i++) {
-             messages = this.getFruit(i).toString()+ "\n";
-             for (int j=0;j<Items.length;j++)
-             {
-             if( messages.contains(Items[j]))
-             {
-                 compteurs[j]=compteurs[j]+1;
-             }
-             else 
-             {
-                 compteurs[j]=compteurs[j]+0;
-             }
-             }
-                  
-          }
-        
-        int k=0;
-       
-        messages="Panier de "+this.getNbFruits()+ "Fruits: "+ this.getPrix()+"\n"+
-                compteurs[0]+"Orange de 0.5 euros"+"\n"+ compteurs[1]+"Fraise de 0.5 euros "+"\n"+
-                compteurs[2]+"Pomme de 0.5 euros"+"\n";
-           
-        
+             messages += this.getFruit(i).toString()+ "\n";
+        }
        
         return messages;
     }
 
-    
    
     
     
@@ -194,7 +151,8 @@ public class Panier {
     {   
                     
        // setMessage(nameFruit);
-  
+       
+        
        switch(nameFruit){//j'aimerai que les cases soient pas sensible
         case "Orange": 
             return new Orange();
@@ -204,23 +162,12 @@ public class Panier {
             return  new Orange();
            
          }
-       
      
     }
-    
-     public void setStringList(String items[])
-    {
-        this.Items=items;
-    }
-    
-    public  String[] getStringList()
-    {
-        return Items;
-    }
 
-
+/*
     //tests
-    /*public static void main(String[] args) throws PanierPleinException {
+    public static void main(String[] args) throws PanierPleinException {
         //Ecrire ici vos tests
         Panier p1 = new Panier(5);
         Panier p2 = new Panier(5);
@@ -231,12 +178,6 @@ public class Panier {
         Orange o3 = new Orange(0.8, "France");
         Orange o4 = new Orange(0.2, "Italy");
         Orange o5 = new Orange(0.1, "France");
-         Macedoine test;
-        test = new Macedoine();
-        test.ajoutFruitMacedoine(new Orange(10, "France"));
-        test.ajoutFruitMacedoine(new Fraise());
-        System.out.println(""+test.isSeedless());
-        System.out.println(test.toString());
 
     try{p1.ajout(o1);
         p1.ajout(o2);
@@ -251,7 +192,6 @@ public class Panier {
         p2.ajout(o4);
 
         p3.ajout(o5);
-        p1.ajout(test);
         //avant le boycotte
         for (Fruit fruit : p1.fruits) {
             System.out.println(fruit.toString());

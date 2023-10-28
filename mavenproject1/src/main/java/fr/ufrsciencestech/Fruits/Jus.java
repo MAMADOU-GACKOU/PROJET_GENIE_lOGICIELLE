@@ -9,68 +9,61 @@ package fr.ufrsciencestech.Fruits;
  * @author aa800033
  */
 public  class Jus extends JusDeFruitDecorateur {
-    private static String type;//permet d'indiquer si c'est orange,ou banane etc
+    
     
     public Jus(Fruit fruit,String typeDefruit) {
-        super(fruit);
-        setType(typeDefruit);
+        super(fruit,typeDefruit);
     }
     
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        Jus.type = type;
-    }
-    
-
+    /**
+     *
+     * @return le détails concernant le jus 
+     * qui n'est rien d'autre que son composant en fruit et son prix
+     */
     @Override
-    public double getPrix() {
-       double prixJusFruit =0;
-       double prixBaseFruit = fruit.getPrix();
-       String nomFruit = Jus.type;
-       switch(nomFruit){//j'aimerai que les cases soient pas sensible
-        case "Orange": 
-            prixJusFruit =1;break;
-        case "Fraise":
-            prixJusFruit =2.5;break;
-        default:
-            prixJusFruit =0.5;break;
-           
-         }
-               System.out.println(prixJusFruit);
-               System.out.println(prixBaseFruit);
-
-       return (prixJusFruit+prixBaseFruit);
-       
-    }
-
-      @Override
     public String toString(){
-        return this.getType()+"(jus) a "+fruit.getPrix();
+        return this.getTYPE()+"(jus) a "+this.getPrix();
     }
 
-    
-
+    /**
+     *
+     * @return l'origine du jus qui n'est rien d'autre que l'origine du fruit 
+     * qui a permet sa fabriquation
+     */
     @Override
     public String getOrigine() {
        return fruit.getOrigine();
     }
 
+    /**
+     *
+     * @return si le jus contient du grain ou pas 
+     * et on a choisi que par defaut et nature qu'un jus ne contient jamais de grain de fruit
+     */
     @Override
     public boolean isSeedless() {
         return false;
     }
     public static void main(String[] args) {
+        /*test de création des jus à partir des fruits existants
+        et l'affichage de ce qui nous indiquera le type ou contituant du jus 
+        et son prix effectivement 
+        */
         Fruit orange = new Orange(4,"Algerie");
         Fruit jusDOrange = new Jus(orange,"Orange");
         System.out.println(jusDOrange.toString());
-            System.out.println(Jus.type);
+        
 
         Fruit fraise = new Fraise();
         Fruit jusDeFraise = new Jus(fraise,"Fraise");
         System.out.println(jusDeFraise.toString());
+        
+        /*Comment peut-on interdir la création de jus d'un autre jus
+        c'est ce qui est materialsé par les deux lignes en commentaire 
+        si vous voulez voir 
+        */
+        /*Fruit jusDeFraiseO = new Jus(jusDeFraise,"Fraise");
+        System.out.println(jusDeFraiseO.toString());*/
 
     }
 }

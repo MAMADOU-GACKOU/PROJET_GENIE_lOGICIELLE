@@ -6,8 +6,33 @@ package fr.ufrsciencestech.Fruits;
 
 /**
  *
- * @author aa800033
+ * @author Wissam
  */
-public class Cerise {
-    
+public class Cerise extends FruitSimple {
+    public Cerise(double prix, String origine)
+    {
+        super(prix, origine);
+    }
+    public Cerise()
+    {
+        super(0.5,"Espagne");
+    }
+    @Override
+    public boolean isSeedless()
+    {
+        return true;
+    }
+    @Override
+    public String toString()
+    {
+        return "Cerise de " + this.getOrigine()+ " a " + this.getPrix() + " euros";
+    }
+    @Override
+    public boolean equals(Object o){  //predicat pour tester si 2 Cerises sont equivalentes
+        if(o != null && getClass() == o.getClass()){
+            Cerise cerise = (Cerise) o;
+            return ((cerise.getPrix()==getPrix())  && cerise.getOrigine().equals(getOrigine()));
+        }
+        return false;
+    }    
 }

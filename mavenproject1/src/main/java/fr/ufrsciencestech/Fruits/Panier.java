@@ -200,6 +200,10 @@ public class Panier {
             return new Orange();
         case "Fraise":
             return new Fraise();
+        case "Cerise":
+            return new Cerise();
+        case "Banane":
+            return new Banane();
         default:
             return  new Orange();
            

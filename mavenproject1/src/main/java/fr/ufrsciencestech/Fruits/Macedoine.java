@@ -80,16 +80,20 @@ public class Macedoine implements Fruit{
         texte += " a "+this.getPrix();
         return texte;
     }
+  
+   
     public static void main(String[] args) {
         Macedoine test;
         test = new Macedoine();
-        test.ajoutFruitMacedoine(new Orange(10, "France"));
-        test.ajoutFruitMacedoine(new Fraise());
-        System.out.println(""+test.isSeedless());
-        System.out.println(test.toString());
-        
-        
-
+        Banane b = new Banane(4, "Japan");
+        Ananas a = new Ananas(8, "canada");
+        //test.ajoutFruitMacedoine(new Orange(10, "France"));
+      //  test.ajoutFruitMacedoine(new Fraise());
+        //System.out.println(""+test.isSeedless());
+           
+         test.ajoutFruitMacedoine(b);
+         test.ajoutFruitMacedoine(a);
+       System.out.println(test.toString());
     }
     
 }

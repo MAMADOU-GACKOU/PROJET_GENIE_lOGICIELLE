@@ -6,36 +6,36 @@ package fr.ufrsciencestech.Fruits;
 
 /**
  *
- * @author aa800033
+ * @author djera
  */
 
-public class Cerise  extends FruitSimple{
+public class Ananas  extends FruitSimple{
     
-    public Cerise(double prix, String origine) {
+    public Ananas(double prix, String origine) {
         super(prix, origine);
     }
     
-    public Cerise()
+    public Ananas()
     {
-        super(1.0,"Espagne");
+        super(3.0,"Espagne");
         
     }
     
       @Override
     public String toString(){
-        return "Cerise de " + this.getOrigine() + " a " + this.getPrix() + " euros";
+        return "Ananas de " + this.getOrigine() + " a " + this.getPrix() + " euros";
     }
 
     @Override
-    public boolean equals(Object o){  //predicat pour tester si 2 cerises sont equivalentes
+    public boolean equals(Object o){  //predicat pour tester si 2 ananas sont equivalentes
         if(o != null && getClass() == o.getClass()){
-            Cerise ba = (Cerise) o;
+            Ananas ba = (Ananas) o;
             return (ba.getPrix() == getPrix() && getOrigine().equals(ba.getOrigine()));
         }
         return false;
     }
 
-    public boolean isSeedless() {  //predicat indiquant qu'une cerise a des pepins
+    public boolean isSeedless() {  //predicat indiquant qu'une ananas a des pepins
         return false;
     }
     
@@ -50,3 +50,4 @@ public class Cerise  extends FruitSimple{
         this.prix=prix;
     }
 }
+

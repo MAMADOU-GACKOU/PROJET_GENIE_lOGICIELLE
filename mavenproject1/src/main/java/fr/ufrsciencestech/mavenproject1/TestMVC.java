@@ -21,10 +21,11 @@ public class TestMVC {
     private VueG vueg;      //pour pouvoir changer de vue si on le souhaite
     private Controleur controleur;  //pour pouvoir changer de controleur si on le souhaite
     private VueG vueP;
-   
-    // ici je suppose que c ma liste de fruit du modele 
-    private String ListeFruit[]={"Orange","Fraise","Pomme"};
-   
+   // private VueGraphAjoutRetire vuetestcombo;
+    private String ListeFruit[]={"Orange","Banane","Ananas","Cerise",
+        "Macedoine de Banane","Macedoine de Banane,Ananas","Orange(Jus)",
+    "Macedoine de Cerise,Fraise(jus)","Macedoine de Banane,Ananas(Jus)"};
+    
 
     /**
      * @return the vueg
@@ -73,7 +74,7 @@ public class TestMVC {
         //abdel
 
         vueg = new VueGraphSwing();
-        
+        //vuetestcombo = new VueGraphAjoutRetire();
         controleur = new Controleur();
         Modele modele = new Modele(ListeFruit);
 
@@ -84,16 +85,12 @@ public class TestMVC {
         
 
         //next window
-        // ici je donne la mm liste a ma vue
-        // y'a la possibilité aussi de retourné celle du modele et l'affecter  a la vue 
         vueP = new VueGraphAjoutRetire(ListeFruit);
 
-        controleur = new Controleur();
-        // la je donne la liste au modele 
-        Modele modele2 = new Modele(ListeFruit);
+      
         
         modele.addObserver(vueP);
-        
+       
         vueP.addControleur(controleur);
         
         

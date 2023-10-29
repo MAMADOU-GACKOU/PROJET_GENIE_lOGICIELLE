@@ -1,68 +1,44 @@
 package fr.ufrsciencestech.Fruits;
 
 
-
-
-
-
-public class Fraise implements Fruit{
-    private double prix;
-    private String origine;
-
-    Fraise( double prix, String origine){
-    if(prix < 0)
-	    this.prix = -prix;  //une solution possible pour interdire les prix negatifs
-	else
-	    this.prix = prix;
-
-	if(origine.equals(""))
-            this.origine = "Espagne";  //Espagne par défaut
-	else
-            this.origine = origine;  
+public class Fraise  extends FruitSimple{
+    
+    public Fraise(double prix, String origine) {
+        super(prix, origine);
     }
-    public static void main(String[] args) {
+    
+    public Fraise()
+    {
+        super(0.5,"Espagne");
         
     }
-
-    Fraise() 
-        {
-            this.prix = 0.5;  //prix en euros
-            this.origine="Espagne";
-        }
-
-    public double getPrix(){
-        return prix;
-        }
     
-        public void setPrix(double prix){
+      @Override
+    public String toString(){
+        return "Fraise de " + this.getOrigine() + " a " + this.getPrix() + " euros";
+    }
+
+    @Override
+    public boolean equals(Object o){  //predicat pour tester si 2 Fraises sont equivalentes
+        if(o != null && getClass() == o.getClass()){
+            Fraise ba = (Fraise) o;
+            return (ba.getPrix() == getPrix() && getOrigine().equals(ba.getOrigine()));
+        }
+        return false;
+    }
+
+    public boolean isSeedless() {  //predicat indiquant qu'une Fraises a des pepins
+        return false;
+    }
+    
+    
+    
+     public void setOrigine(String origine) {
+        this.origine = origine;
+    }
+    
+    public void setPrix(double prix)
+    {
         this.prix=prix;
-        }
-    
-        public String getOrigine(){
-        return origine;
-        }
-     
-        public void setOrigine(String origine){
-        this.origine=origine;
-        }
-    
-        @Override
-        public String toString(){
-            return "Fraise de " + origine + " a " + prix + " euros";
-        }
-    
-        @Override
-        public boolean equals(Object o){  //predicat pour tester si 2 oranges sont equivalentes
-            if(o != null && getClass() == o.getClass()){
-                Fraise or = (Fraise) o;
-                return (prix == or.prix && origine.equals(or.origine));
-            }
-            return false;
-        }
-    
-        public boolean isSeedless() {  //predicat indiquant qu'une orange a des pepins
-            return false;
-        }
-
-
+    }
 }

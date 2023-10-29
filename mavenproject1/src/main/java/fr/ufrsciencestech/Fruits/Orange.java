@@ -7,55 +7,28 @@ package fr.ufrsciencestech.Fruits;
  * @author aa800033
 
  */
-public class Orange implements Fruit{
-    private double prix;
-    private String origine;
-	
-    public Orange() 
-    {
-        this.prix = 0.5;  //prix en euros
-        this.origine="Espagne";
+public class Orange  extends FruitSimple{
+    
+    public Orange(double prix, String origine) {
+        super(prix, origine);
     }
     
-    public Orange(double prix, String origine) 
+    public Orange()
     {
-	if(prix < 0)
-	    this.prix = -prix;  //une solution possible pour interdire les prix negatifs
-	else
-	    this.prix = prix;
-
-	if(origine.equals(""))
-            this.origine = "Espagne";  //Espagne par défaut
-	else
-            this.origine = origine;   
+        super(0.5,"Espagne");
+        
     }
-
-    public double getPrix(){
-	return prix;
-    }
-
-    public void setPrix(double prix){
-	this.prix=prix;
-    }
-
-    public String getOrigine(){
-	return origine;
-    }
- 
-    public void setOrigine(String origine){
-	this.origine=origine;
-    }
-
-    @Override
+    
+      @Override
     public String toString(){
-        return "Orange de " + origine + " a " + prix + " euros";
+        return "Orange de " + this.getOrigine() + " a " + this.getPrix() + " euros";
     }
 
     @Override
     public boolean equals(Object o){  //predicat pour tester si 2 oranges sont equivalentes
         if(o != null && getClass() == o.getClass()){
-            Orange or = (Orange) o;
-            return (prix == or.prix && origine.equals(or.origine));
+            Orange ba = (Orange) o;
+            return (ba.getPrix() == getPrix() && getOrigine().equals(ba.getOrigine()));
         }
         return false;
     }
@@ -63,19 +36,20 @@ public class Orange implements Fruit{
     public boolean isSeedless() {  //predicat indiquant qu'une orange a des pepins
         return false;
     }
-
-/*
-    public static void main (String[] args){
-        //Ecrire ici vos tests
-	System.out.println("premier test Orange");
-
-    Orange fruit1 = new Orange();
-    System.out.println(fruit1.toString());
-
-    Orange  fruit2 = new Orange(100, "France");
     
-    System.out.println(fruit2.toString());
-
-
-   }*/
+    
+    
+     public void setOrigine(String origine) {
+        this.origine = origine;
+    }
+    
+    public void setPrix(double prix)
+    {
+        this.prix=prix;
+    }
 }
+
+
+   
+
+

@@ -18,34 +18,48 @@ public class VueGraphAjoutRetire extends JFrame implements VueG{
 
     private JButton inc;
     private JButton dec;
+     private JButton boycott;
     private JTextArea affiche;
     private JComboBox combo;
+    private JComboBox combocountry;
     private JPanel panelNorth;
+    private JPanel panelSouth;
 
     public VueGraphAjoutRetire()
 
     {
         super("Panier");
-        String items[] = {"Orange", "Fraise"};
+        String items[] = {"Orange", "Fraise","Macedoine de Banane,Ananas","Jus(banane)","Macedoine,jus(orange),jus(cerise)"};
+        String country[] = {"GUINEA","USA","JAPON","FRANCE"};
         inc = new JButton("+");
         dec = new JButton("-");
+        boycott = new JButton("Boycotter");
         affiche = new JTextArea();
         combo = new JComboBox(items);
-
+        combocountry = new JComboBox(country);
         //combo.setSelectedIndex(0);
         panelNorth = new JPanel();
+        panelSouth = new JPanel();
         add(panelNorth, BorderLayout.NORTH);
-        add(dec, BorderLayout.SOUTH);
+        add(panelSouth, BorderLayout.SOUTH);
+         //add(boycott, BorderLayout.AFTER_LAST_LINE);
         add(affiche, BorderLayout.CENTER);
         panelNorth.add(inc, BorderLayout.BEFORE_FIRST_LINE);
         panelNorth.add(combo, BorderLayout.BEFORE_LINE_BEGINS);
-
+        panelNorth.add(combocountry, BorderLayout.AFTER_LAST_LINE);
+        panelSouth.add(dec,BorderLayout.BEFORE_LINE_BEGINS);
+        panelSouth.add(boycott,BorderLayout.AFTER_LINE_ENDS);
+        
+        
+        
+        
         inc.setName("Plus");
         dec.setName("Moins");
         affiche.setName("Affichage");
         combo.setName("Combobox");
+        combocountry.setName("Pays");
         this.pack();
-        this.setSize(300, 200);
+        this.setSize(600, 300);
         this.setVisible(true);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

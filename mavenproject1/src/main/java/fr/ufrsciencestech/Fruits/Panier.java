@@ -166,13 +166,28 @@ public class Panier {
             return new Orange();
         case "Fraise":
             return new Fraise();
-        case "Macedoine de Banane":
+        case "Macedoine de Banane,Ananas":
           Macedoine test = new Macedoine();
           Banane b = new Banane(4, "Japan");
           Ananas a = new Ananas(8, "canada");
           test.ajoutFruitMacedoine(b);
           test.ajoutFruitMacedoine(a);
         return test;
+        case "Jus(banane)":
+          Fruit swift = new Banane(3,"usa");
+          swift = new Jusbanane(swift);
+            return swift;
+         case "Macedoine,jus(orange),jus(cerise)":
+            Fruit first = new Banane(9,"usa");
+                first = new Jusbanane(first);
+                //deuxième jus
+                Fruit second = new Orange(2,"guinea");
+                second = new JusCerise(second);
+                //macedoine
+            Macedoine t = new Macedoine();
+             t.ajoutFruitMacedoine(first);
+             t.ajoutFruitMacedoine(second);
+               return t;
         default:
             return  new Orange();
            

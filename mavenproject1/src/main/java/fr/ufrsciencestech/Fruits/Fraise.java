@@ -20,9 +20,8 @@ public class Fraise implements Fruit{
 	else
             this.origine = origine;  
     }
-    public static void main(String[] args) {
-        
-    }
+    
+  
 
     Fraise() 
         {

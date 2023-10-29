@@ -15,6 +15,7 @@ public  class Jus extends JusDeFruitDecorateur {
         super(fruit,typeDefruit);
     }
     
+    
     /**
      *
      * @return le détails concernant le jus 

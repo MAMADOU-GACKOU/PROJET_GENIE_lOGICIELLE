@@ -10,7 +10,6 @@ import fr.ufrsciencestech.view.*;
 import fr.ufrsciencestech.model.Modele;
 
 
-
 /**
  * C'est la classe principale de test du projet
  *
@@ -103,8 +102,7 @@ public class TestMVC {
     }  
 
     public static void main(String[] args) {
+
             TestMVC mvc = new TestMVC();
-            
-            
     }
 }

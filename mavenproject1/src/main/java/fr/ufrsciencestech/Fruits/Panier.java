@@ -200,6 +200,10 @@ public class Panier {
             return new Orange();
         case "Fraise":
             return new Fraise();
+        case "Cerise":
+            return new Cerise();
+        case "Banane":
+            return new Banane();
         default:
             return  new Orange();
            
@@ -218,9 +222,9 @@ public class Panier {
         return Items;
     }
 
-/*
+
     //tests
-    public static void main(String[] args) throws PanierPleinException {
+    /*public static void main(String[] args) throws PanierPleinException {
         //Ecrire ici vos tests
         Panier p1 = new Panier(5);
         Panier p2 = new Panier(5);
@@ -231,6 +235,12 @@ public class Panier {
         Orange o3 = new Orange(0.8, "France");
         Orange o4 = new Orange(0.2, "Italy");
         Orange o5 = new Orange(0.1, "France");
+         Macedoine test;
+        test = new Macedoine();
+        test.ajoutFruitMacedoine(new Orange(10, "France"));
+        test.ajoutFruitMacedoine(new Fraise());
+        System.out.println(""+test.isSeedless());
+        System.out.println(test.toString());
 
     try{p1.ajout(o1);
         p1.ajout(o2);
@@ -245,6 +255,7 @@ public class Panier {
         p2.ajout(o4);
 
         p3.ajout(o5);
+        p1.ajout(test);
         //avant le boycotte
         for (Fruit fruit : p1.fruits) {
             System.out.println(fruit.toString());

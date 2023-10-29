@@ -34,14 +34,14 @@ public class Controleur implements ActionListener{
             
                 cb = (JComboBox) e.getSource(); 
                 petName = (String) cb.getSelectedItem();
-                m.p.setMessage(petName);
+                m.getPanier().setMessage(petName);
                 
          }
         else if (((Component) e.getSource()).getName().equals("Plus")) 
         {
                 try {
 
-                m.update(m.p.getMessage());
+                m.update(m.getPanier().getMessage());
             } catch (PanierPleinException ex) {
                 Logger.getLogger(Controleur.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -79,7 +79,7 @@ public class Controleur implements ActionListener{
     return vtestCombo;
     }
     
-
+  
     public void initialiserVueAvecModele() {
     String[] items = m.getStringList(); // Utilisez les données du modèle
     vtestCombo.setCombo(new JComboBox(items)); // Mettez à jour la JComboBox de la vue avec les nouvelles données

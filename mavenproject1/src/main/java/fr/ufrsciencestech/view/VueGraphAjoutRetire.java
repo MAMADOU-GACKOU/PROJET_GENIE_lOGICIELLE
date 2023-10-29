@@ -24,13 +24,12 @@ public class VueGraphAjoutRetire extends JFrame implements VueG{
     private String ListeFruit[];
     
     
- // ici je passe un parametre d'une liste de fruit 
+
     public VueGraphAjoutRetire(String ListeFruit[])
 
     {
         super("Panier");
         
-        // j'initialise la liste prévu pour la combobox avec celle passer en parametre 
         String items[]=ListeFruit;
         inc = new JButton("+");
         dec = new JButton("-");

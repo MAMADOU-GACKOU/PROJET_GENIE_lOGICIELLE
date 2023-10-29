@@ -23,7 +23,7 @@ public  class Jus extends JusDeFruitDecorateur {
      */
     @Override
     public String toString(){
-        return this.getTYPE()+"(jus) a "+this.getPrix();
+        return "Jus de prix :"+this.getPrix()+" euros composé du fruit "+fruit.toString();
     }
 
     /**

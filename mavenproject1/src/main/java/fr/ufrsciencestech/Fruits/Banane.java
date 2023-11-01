@@ -39,7 +39,7 @@ public class Banane extends FruitSimple {
     public void setPrix(double prix) {
         this.prix = prix;
     }
-
+    
     public void setOrigine(String origine) {
         this.origine = origine;
     }

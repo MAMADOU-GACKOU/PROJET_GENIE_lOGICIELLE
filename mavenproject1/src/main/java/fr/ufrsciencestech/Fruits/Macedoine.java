@@ -23,7 +23,7 @@ public  class Macedoine implements Fruit{
         this.seedless=false;
     }
     
-    //methode qui ajoute un seul fruit 
+    //methode qui ajoute un fruit simple tout comme un jus ou une autre macedoune 
      public void  AjoutFruitMacedoine(Fruit f)
      {
          this.ListeFruits.add(f);
@@ -47,6 +47,10 @@ public  class Macedoine implements Fruit{
          
          }
         
+     }
+     
+     public int getNbreElement(){
+         return  ListeFruits.size();
      }
      
      // ajout d'une macedoine dans macedoine 

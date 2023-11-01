@@ -21,8 +21,8 @@ import static org.mockito.Mockito.*;
 public class PanierTest {
     private Panier pVide,pPlein;
     private Panier o1,o2;
-    private Orange mocko1;
-    private Orange mocko2;
+    private Fruit mocko1;
+    private Fruit mocko2;
     
     //une autre partie
      Fruit O1 ;

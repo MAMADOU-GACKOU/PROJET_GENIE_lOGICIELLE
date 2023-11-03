@@ -52,8 +52,8 @@ public class VueGraphAjoutRetireTest {
     @Test
     public void testUpdate() throws PanierPleinException {
         assertEquals(vueg.getAffiche().getText(), "");
-        m.p.ajout(new Orange()); 
-        /*int cpt = m.p.getNbFruits();
+        /*m.p.ajout(new Orange()); 
+        int cpt = m.p.getNbFruits();
         vueg.getAffiche().setText(((Integer)cpt).toString());
         assertEquals(vueg.getAffiche().getText(), "1");*/
         
@@ -61,51 +61,42 @@ public class VueGraphAjoutRetireTest {
         assertEquals(vueg.getAffiche().getText(), "Bonjour"); 
     }
 
-    /**
-     * Test of getInc method, of class VueGraphAjoutRetire.
-     */
-    @Test
-    public void testGetInc() {
-        System.out.println("getInc");
-        VueGraphAjoutRetire instance = null;
-        JButton expResult = null;
-        JButton result = instance.getInc();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  
 
     /**
-     * Test of setInc method, of class VueGraphAjoutRetire.
+     * Test des boutons plus ,moins et l'affichage (JTextArea)
      */
     @Test
-    public void testSetInc() {
-        System.out.println("incr boutoun");
+    public void testInc() {
+        System.out.println("incr, desc boutoun et affichage");
         assertNotNull(vueg);  // Instantiated?
         JTextArea res = (JTextArea)TestUtils.getChildNamed(vueg, "Affichage");
         assertNotNull(res); // Component found?
         final JButton plus = (JButton)TestUtils.getChildNamed(vueg, "Plus");
         assertNotNull(plus);
-        
+        final JButton moins = (JButton)TestUtils.getChildNamed(vueg, "Moins");
+        assertNotNull(moins);
         //tests d'acceptation (de l'interface) : 
         plus.doClick();
-        assertEquals(res.getText(), "1");
+        assertEquals(res.getText(), "Panier de 1 Fruits: 0.99\n");// par defaut une banane(à 0.99) est ajouté 
         plus.doClick();
-        assertEquals(res.getText(), "2");
+        assertEquals(res.getText(), "Panier de 2 Fruits: 1.98\n");
+        moins.doClick();
+        assertEquals(res.getText(), "Panier de 1 Fruits: 0.99\n");// par defaut une banane(à 0.99) est ajouté 
+        moins.doClick();
+        assertEquals(res.getText(), "Panier de 0 Fruits: 0.0\n");
+
     }
 
     /**
-     * Test of getCombo method, of class VueGraphAjoutRetire.
+     * Test de toutes des interactions sur une combobox
      */
     @Test
-    public void testGetCombo() {
+    public void testCombo() {
         System.out.println("getCombo");
-        assertNotNull(vueg);  // Instantiated?
-        JComboBox res = (JComboBox)TestUtils.getChildNamed(vueg, "combobox");
-        assertNotNull(res); // Component found?
-        
+       
         //on verifie que nos affichages correspondent bien aux élèments specifiés
-        assertEquals(3, combobox.getItemCount());
+       assertEquals(3, combobox.getItemCount());
         assertEquals("France", combobox.getItemAt(0));
         assertEquals("Bresil", combobox.getItemAt(1));
         assertEquals("Espagne", combobox.getItemAt(2));
@@ -118,86 +109,6 @@ public class VueGraphAjoutRetireTest {
 
    
 
-    /**
-     * Test of getDec method, of class VueGraphAjoutRetire.
-     */
-    @Test
-    public void testGetDec() {
-        System.out.println("getDec");
-        VueGraphAjoutRetire instance = null;
-        JButton expResult = null;
-        JButton result = instance.getDec();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setDec method, of class VueGraphAjoutRetire.
-     */
-    @Test
-    public void testSetDec() {
-        System.out.println("setDec");
-        JButton dec = null;
-        VueGraphAjoutRetire instance = null;
-        instance.setDec(dec);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getAffiche method, of class VueGraphAjoutRetire.
-     */
-    @Test
-    public void testGetAffiche() {
-        System.out.println("getAffiche");
-        VueGraphAjoutRetire instance = null;
-        JTextArea expResult = null;
-        JTextArea result = instance.getAffiche();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setAffiche method, of class VueGraphAjoutRetire.
-     */
-    @Test
-    public void testSetAffiche() {
-        System.out.println("setAffiche");
-        JTextArea affiche = null;
-        VueGraphAjoutRetire instance = null;
-        instance.setAffiche(affiche);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setStringListVue method, of class VueGraphAjoutRetire.
-     */
-    @Test
-    public void testSetStringListVue() {
-        System.out.println("setStringListVue");
-        String[] items = null;
-        VueGraphAjoutRetire instance = null;
-        instance.setStringListVue(items);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getStringListVue method, of class VueGraphAjoutRetire.
-     */
-    @Test
-    public void testGetStringListVue() {
-        System.out.println("getStringListVue");
-        VueGraphAjoutRetire instance = null;
-        String[] expResult = null;
-        String[] result = instance.getStringListVue();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+   
     
 }

@@ -21,7 +21,7 @@ public class TestMVC {
     private Controleur controleur;  //pour pouvoir changer de controleur si on le souhaite
     private VueG vueP;
    // private VueGraphAjoutRetire vuetestcombo;
-    private String ListeFruit[]={"Orange","Banane","Ananas","Cerise",
+    private String ListeFruit[]={"Banane","Orange","Ananas","Cerise",
         "Macedoine de Banane","Macedoine de Banane,Ananas","Orange(Jus)",
     "Macedoine de Cerise,Fraise(jus)","Macedoine de Banane,Ananas(Jus)"};
     

@@ -4,15 +4,11 @@
  */
 package fr.ufrsciencestech.Fruits;
 
-import fr.ufrsciencestech.Fruits.Orange;
 import java.util.ArrayList;
-import java.util.Iterator;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
 import static org.mockito.Mockito.*;
 /**
  *

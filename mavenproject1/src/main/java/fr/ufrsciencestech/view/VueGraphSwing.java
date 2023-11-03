@@ -21,7 +21,7 @@ public class VueGraphSwing extends JFrame implements VueG{
    
 
     public VueGraphSwing() {
-       super ("CompteurSwing");
+       super ("Panier");
         inc = new JButton("+");
         dec = new JButton("-");
         affiche = new JLabel("0", JLabel.CENTER);

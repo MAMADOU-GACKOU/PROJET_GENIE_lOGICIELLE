@@ -28,7 +28,7 @@ public class VueGraphAjoutRetire extends JFrame implements VueG{
     public VueGraphAjoutRetire(String ListeFruit[])
 
     {
-        super("Panier");
+        super("Magasin");
         
         String items[]=ListeFruit;
         inc = new JButton("+");
@@ -61,6 +61,11 @@ public class VueGraphAjoutRetire extends JFrame implements VueG{
         getCombo().addActionListener(c);
     }
 
+    /**
+     *
+     * @param m
+     * @param p le panier
+     */
     @Override
     public void update(Observable m, Object p) {     //This method is called whenever the observed object is changed
         /* int compte = ((Panier) p).getNbFruits();

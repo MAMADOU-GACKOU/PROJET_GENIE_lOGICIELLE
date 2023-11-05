@@ -20,7 +20,7 @@ public class Modele extends Observable{
     private String Liste[]= {"Orange","Fraise","Pomme"};
     
     private int compteur;
-    int nb = 50;    
+    int nb = 20;    
     public Modele(String items[]){
         // initialisation 
        this.p = new Panier(nb);

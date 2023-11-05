@@ -108,14 +108,14 @@ public  class Macedoine implements Fruit{
     @Override
     public String toString()
     {
-        String result = "";
+        String result = "Macedoine de :\n";
         double prix = 0.0;
         for (Fruit f : ListeFruits) {
-            prix=prix+f.getPrix();
-            result += f.toString()+"\n";
+            
+            result += " "+f.toString()+"\n";
            
         }
-        result = "Macedoine de prix " +this.getPrix()+" euros composé de fruit : "+"\n"+result;
+        result += " prix " +this.getPrix()+" euros\n";
         return result ;
     }
 

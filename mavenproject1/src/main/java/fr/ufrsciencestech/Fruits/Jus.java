@@ -23,7 +23,7 @@ public  class Jus extends JusDeFruitDecorateur {
      */
     @Override
     public String toString(){
-        return "Jus de prix :"+this.getPrix()+" euros composé du fruit "+fruit.toString();
+        return fruit.getClass().getSimpleName() +"(Jus) a "+this.getPrix();//on peut utiliser l'attribut type
     }
 
     /**

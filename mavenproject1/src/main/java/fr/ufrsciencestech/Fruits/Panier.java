@@ -1,7 +1,10 @@
 package fr.ufrsciencestech.Fruits;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import static java.util.Map.entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -150,135 +153,31 @@ public class Panier {
      */
     @SuppressWarnings("empty-statement")
     public String afficheContenuPanier() {
-
-        int[] compteurs = new int[Items.length];
-        double[] compteursPrixFruit = new double[Items.length];
-
-        // j'initialise les  compteurs a zero 
-        for (int i = 0; i < compteurs.length; i++) {
-            compteurs[i] = 0;
-            compteursPrixFruit[i] = 0.0;
-
+        Map<String,Integer> cptFruit = new HashMap<>();
+        StringBuilder message =  new StringBuilder("Panier de ");
+        if(this.getTaillePanier() >1){
+            message.append(this.getTaillePanier() +" fruits : "+this.getPrix()+" euros \n\n");
+        }else{
+            message.append(this.getTaillePanier() +" fruit : "+this.getPrix()+" euros \n\n");
         }
-
-        for (int i = 0; i < this.getNbFruits(); i++) {
-            message = this.getFruit(i).toString();
-
-            ArrayList<String> listeFruit = new ArrayList();
-            String contenu = "";
-
-            if (message.contains("Macedoine")) {
-
-                for (int k = 0; k < Items.length; k++) {
-                    if (message.contains(Items[k]) && !Items[k].contains("Macedoine")) {
-
-                        listeFruit.add(Items[k]);
-                        System.out.println(Items[k]);
-
-                    }
-                }
-
-                Iterator<String> iterator = listeFruit.iterator();
-                System.out.println(iterator);
-                while (iterator.hasNext()) {
-                    contenu = contenu + iterator.next() + ",";
-                }
-                contenu = "Macedoine de " + contenu;
-
-                int lastIndex = contenu.lastIndexOf(",");
-                if (lastIndex >= 0) {
-                    contenu = contenu.substring(0, lastIndex) + contenu.substring(lastIndex + 1);
-                }
+        //on verifie si le panier à quelques fruits
+        if(this.getTaillePanier() > 0){
+            for(Fruit f : fruits){
+                String tostringFruit = f.toString();
+                cptFruit.put(tostringFruit, cptFruit.getOrDefault(tostringFruit, 0)+1);
             }
-
-            if (message.contains("Jus")) {
-
-                for (int k = 0; k < Items.length; k++) {
-                    if (message.contains(Items[k])) {
-
-                        listeFruit.add(Items[k]);
-                        System.out.println(Items[k]);
-
-                    }
-                }
-
-                Iterator<String> iterator = listeFruit.iterator();
-                System.out.println(iterator);
-                while (iterator.hasNext()) {
-                    contenu = contenu + iterator.next();
-                }
-                contenu = contenu + "(Jus)";
-                System.out.println(contenu);
+            //pour compter et afficher en une fois pour chaque elt
+            for(Map.Entry<String,Integer> entry : cptFruit.entrySet()){
+                String entryKey = entry.getKey();
+                int nbre = entry.getValue();
+                message.append(nbre).append(" ").append(entryKey).append("\n");
             }
-
-            for (int j = 0; j < Items.length; j++) {
-
-                if (message.contains("Macedoine")) {
-
-                    if (Items[j].trim().equals(contenu)) {
-                        compteurs[j] = compteurs[j] + 1;
-
-                    }
-
-                    System.out.println("items" + j + "cpt " + compteurs[j]);
-                    // ici c le cas ou le message contient pas macedoine.
-                }
-                if (message.contains(Items[j]) && !message.contains("Macedoine") && !Items[j].contains("Macedoine") && !message.contains("Jus") && !Items[j].contains("Jus")) {
-                    compteurs[j] = compteurs[j] + 1;
-                }
-
-                if (message.contains("Jus")) {
-
-                    if (Items[j].trim().equals(contenu)) {
-                        compteurs[j] = compteurs[j] + 1;
-                        System.out.println(contenu);
-                        System.out.println("items" + j + "cpt " + compteurs[j]);
-                    }
-                }
-
-            }// for j
-
-        }// for i
-
-        // message quelque soit la liste de fruit 
-        // ici il faut recuperer le prix de chaque fruits ici
-        message = "Panier de " + this.getNbFruits() + " Fruits: " + this.getPrix() + "\n";
-
-        String ajout = "";
-
-        for (int k = 0; k < Items.length; k++) {
-            if (Items[k].equals("Orange") || Items[k].equals("Fraise") || Items[k].equals("Banane")) {
-                compteursPrixFruit[k] = 0.5;
-
-            }
-            if (Items[k].equals("Macedoine de Banane")) {
-                compteursPrixFruit[k] = 1.5;
-
-            }
-            if (Items[k].equals("Macedoine de Banane,Ananas")) {
-                compteursPrixFruit[k] = 3.5;
-
-            }
-            if (Items[k].equals("Cerise")) {
-                compteursPrixFruit[k] = 1.0;
-
-            }
-
-            if (Items[k].equals("Ananas")) {
-                compteursPrixFruit[k] = 3.0;
-
-            }
-
-            if (Items[k].equals("Orange(Jus)")) {
-                compteursPrixFruit[k] = 1.0;
-
-            }
-
-            ajout = compteurs[k] + " " + Items[k] + " de " + compteursPrixFruit[k] + "  euros" + "\n";
-            message = message + ajout;
+            
+        }else{
+            message.append("");
         }
-
-        return message;
+        
+        return message.toString();
     }
 
     /**
@@ -307,8 +206,6 @@ public class Panier {
                 Macedoine MB = new Macedoine();
                 Fruit b1 = new Banane();
                 MB.AjoutFruitMacedoine(b1);
-                MB.AjoutFruitMacedoine(b1);
-                MB.AjoutFruitMacedoine(b1);
 
                 return MB;
             }
@@ -327,6 +224,15 @@ public class Panier {
                 Fruit o = new Orange();
                 Jus jo = new Jus(o, "Orange");
                 return jo;
+            }
+            case "Macedoine de Cerise,Fraise(jus)":{
+               Cerise c = new Cerise();
+               Jus j = new Jus(new Fraise(),"Fraise");
+               Macedoine MCJ = new Macedoine();
+               MCJ.AjoutFruitMacedoine(c);
+               MCJ.AjoutFruitMacedoine(j);
+               return MCJ;
+               
             }
 
             default:
@@ -349,8 +255,8 @@ public class Panier {
         //Ecrire ici vos tests
         Panier p1 = new Panier(12);
 
-        Orange o1 = new Orange(0.5, "Espagne");
-        Orange o2 = new Orange(1.0, "Espagne");
+        Orange o1 = new Orange(1.5, "Espagne");
+        Orange o2 = new Orange(1.5, "Espagne");
         Orange o3 = new Orange(0.8, "France");
         Orange o4 = new Orange(0.2, "Italy");
         Orange o5 = new Orange(0.1, "France");
@@ -370,13 +276,14 @@ public class Panier {
             p1.ajout(o4);
             p1.ajout(o5);
 
-            p1.ajout(test);
+            //p1.ajout(test);
             p1.ajout(juSDorange);
 
             //avant le boycotte
-            for (Fruit fruit : p1.fruits) {
+            /*for (Fruit fruit : p1.fruits) {
                 System.out.println(fruit.toString());
-            }
+            }*/
+            System.out.println(p1.afficheContenuPanier());
 
         } catch (Exception e) {
             // TODO: handle exception

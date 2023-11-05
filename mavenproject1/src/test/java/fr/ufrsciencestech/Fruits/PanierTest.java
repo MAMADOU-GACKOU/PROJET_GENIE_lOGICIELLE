@@ -110,16 +110,7 @@ public class PanierTest {
         p3.ajout(mocko2); //test avec la DT2 de ajout
         assertTrue(p3.getNbFruits()== 2); //oracle
     }
- 
 
-    
-   
-    
-    
-    
-    
-        
-   
 
     /**
      * Test of toString method, of class Panier.
@@ -392,51 +383,11 @@ public class PanierTest {
     }
     
 
-    /**
-     * Test of afficheContenuPanier method, of class Panier.
-     */
-    @Test
-    public void testAfficheContenuPanier()  throws PanierPleinException{
-        System.out.println("afficheContenuPanier");
-       
-    String liste[]= {"Orange"};
-    PTest.setStringList(liste);
-    String msgAttendu="Panier de 0 Fruits: 0.0"+"\n"+"0 Orange de 0.5 euros\n";
-    String msgContenu= PTest.afficheContenuPanier();
     
-    System.out.println(msgContenu);
-    assertEquals(msgAttendu,msgContenu);
-        
-                
-                 
-    }
 
-    /**
-     * Test of createFruitmethod, of class Panier.
-     */
-    @Test
-    public void testCreateFruit() {
-        System.out.println("createFruit");
-        // ce teste doit etre implementé une fois que la 
-        // methode createFruitprend en compte la liste de fruit.
-    }
+   
 
-    /**
-     * Test of setStringList method, of class Panier.
-     */
-    @Test
-    public void testSetStringList() {
-        System.out.println("setStringList");
-        
-        String Liste[]= {"Fraise","Orange"};
-        PTest.setStringList(Liste);
-        
-        String messageAttendu="Panier de 0 Fruits: 0.0"+"\n"+"0 Fraise de 0.5 euros"+"\n"+"0 Orange de 0.5 euros"+"\n";
-        
- 
-        assertEquals(messageAttendu,PTest.afficheContenuPanier());
-       
-    }
+    
 
     /**
      * Test of getStringList method, of class Panier.

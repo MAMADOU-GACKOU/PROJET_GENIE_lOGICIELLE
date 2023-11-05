@@ -20,11 +20,9 @@ public class JusTest {
     /*on généralise en créant un attribut de type fruit et de cette façon
     on peut tester avec tous les fruit(Orange,fraise ,banane etc..)
     */
-    /*private Fruit fruit1;
+    private Fruit fruit1;
     //private Jus jusMock;
 
-    
-    
     @Before
     public void setUp(){
         //on peut faire les tests avec tous les fruits simple mais on prend par exemple Fraise
@@ -34,47 +32,34 @@ public class JusTest {
     @After
     public void tear(){
         
-    }*/
-    public Fruit fruit1;
-    private Fruit fruit2;
-  
-    
-    @Before
-    public void setUp(){
-        //fruit1 = mock(Orange.class); //doublures
-        //fruit2 = mock(Orange.class);
     }
-    
-    @After
-    public void tear(){
-        
-    }
+   
     
     @Test
     public void testGetPrix(){
-        
-        fruit1 = mock(Orange.class); //doublures
         when(fruit1.getPrix()).thenReturn(0.5);
        Jus jusMock = new Jus(fruit1 ,"Orange");
-       
-        
-        
         double res = jusMock.getPrix();
         //tests d’interaction :
         verify(fruit1, times(1)).getPrix(); //getPrix() doit avoir été appelé
         //exactement 1 fois sur mocko1
-        assertTrue(res == 3.5); 
+        assertFalse(res == 3.5); 
+        assertEquals(res,1.5,0.01);
     }
     
     
 
-    /**
-     * Test of toString method, of class Jus.
-     */
+   
+    
+    //Les tests d'intégration
     @Test
     public void testToString() {
         System.out.println("toString");
-        
+        Fruit fraise = new Fraise(4,"Espagne");
+        Jus jus = new Jus(fraise,"Fraise");
+        String expected = "Espagne";
+        String actual = jus.getOrigine();
+        assertEquals(expected,actual);
     }
 
     /**
@@ -83,18 +68,25 @@ public class JusTest {
     @Test
     public void testGetOrigine() {
         System.out.println("getOrigine");
-        
+        Fruit fruit = new Orange(4, "Espagne");
+        Jus jus = new Jus(fruit, "Orange");  
+        String expected = "Espagne";
+        String actual = jus.getOrigine();
+        assertEquals(expected, actual);
     }
 
     /**
-     * Test de la methode isSeedless de la class Jus.
+     * Test of isSeedless method, of class Jus.
      */
     @Test
     public void testIsSeedless() {
         System.out.println("isSeedless");
-        
+        Fruit fruit = new Orange(4, "Espagne");        
+        Jus jus = new Jus(fruit, "Orange");
+        boolean expected = false;
+        boolean actual = jus.isSeedless();
+        assertEquals(expected, actual);
     }
 
-    
-    
+   
 }

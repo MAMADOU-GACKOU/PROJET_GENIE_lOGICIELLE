@@ -85,13 +85,12 @@ public class TestMVC {
 
         //next window
         vueP = new VueGraphAjoutRetire(ListeFruit);
-
-      
-        
         modele.addObserver(vueP);
-       
         vueP.addControleur(controleur);
         
+        creationFruitSimple fs = new creationFruitSimple(modele);
+        modele.addObserver(fs);
+        fs.addControleur(controleur);
         
        System.out.println( modele.getPanier().toString());
         

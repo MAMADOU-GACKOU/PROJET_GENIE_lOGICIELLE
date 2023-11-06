@@ -45,7 +45,12 @@ public class Modele extends Observable{
         notifyObservers(p);
    
     }
-
+    //on met à jour le panier avec l'ihm de cration de fruit
+    public void AjuterFruitAuPanier(Fruit f) throws PanierPleinException{
+        p.ajout(f);
+        setChanged();
+         notifyObservers(p);
+    }
    // pour affecter une nouvelle liste de fruit
       public void setStringList(String items[])
     {

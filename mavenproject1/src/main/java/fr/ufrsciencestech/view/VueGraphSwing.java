@@ -33,6 +33,7 @@ public class VueGraphSwing extends JFrame implements VueG{
         dec.setName("Moins");
         affiche.setName("Affichage");
         this.pack();
+        this.setSize(300, 200);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

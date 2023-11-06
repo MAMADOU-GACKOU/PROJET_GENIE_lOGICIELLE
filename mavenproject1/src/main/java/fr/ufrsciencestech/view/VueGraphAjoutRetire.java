@@ -49,9 +49,9 @@ public class VueGraphAjoutRetire extends JFrame implements VueG{
         affiche.setName("Affichage");
         combo.setName("Combobox");
         this.pack();
-        this.setSize(300, 200);
+        this.setSize(500, 300);
         this.setVisible(true);
-        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }
 
